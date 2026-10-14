@@ -10,7 +10,7 @@ This repository contains the **PC Multiplayer** game. Players compete in a third
 
 ## Technology
 
-- Unity **2022.3.8** (version used by the provided starter project)
+- Unity **6000.6.5f1** (version used by the provided starter project)
 - C#
 - Unity Netcode for GameObjects
 - Unity Starter Assets — Third Person Character Controller
@@ -81,7 +81,7 @@ Replace this text with a link to the actual VR repository once available.
 
 ## Academic Context
 
-Developed as part of the **Factory Frenzy** final Unity project at **CESI**. The project brief specifies a ten-day proof of concept, with separate VR and PC applications exchanging levels via JSON.
+Developed as part of the **Factory Frenzy** final Unity project at **CESI**. The project brief specifies a ten-day proof of concept, with separate VR (https://github.com/Tijjat/Project-RARV-VR) and PC applications exchanging levels via JSON.
 
 ## Credits
 
