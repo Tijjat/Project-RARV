@@ -1,0 +1,95 @@
+{
+  "formatVersion": 1,
+  "levelId": "example_level_001",
+  "levelName": "Example Work In Progress",
+  "isValid": false,
+  "grid": {
+    "width": 20,
+    "length": 30,
+    "cellSize": 2.0,
+    "origin": { "x": 0.0, "y": 0.0, "z": 0.0 }
+  },
+  "objects": [
+    {
+      "id": "start_001",
+      "prefabId": "platform_start",
+      "position": { "x": 4.0, "y": 0.0, "z": 2.0 },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "platform_001",
+      "prefabId": "platform_basic",
+      "position": { "x": 4.0, "y": 0.0, "z": 4.0 },
+      "rotationY": 90,
+      "parameters": {}
+    },
+    {
+      "id": "moving_001",
+      "prefabId": "platform_moving",
+      "position": { "x": 4.0, "y": 0.0, "z": 6.0 },
+      "rotationY": 0,
+      "parameters": {
+        "moveStart": { "x": 4.0, "y": 0.0, "z": 6.0 },
+        "moveEnd": { "x": 8.0, "y": 0.0, "z": 6.0 },
+        "travelTime": 3.0
+      }
+    },
+    {
+      "id": "checkpoint_001",
+      "prefabId": "checkpoint",
+      "position": { "x": 8.0, "y": 0.0, "z": 8.0 },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "bumper_001",
+      "prefabId": "trap_bumper",
+      "position": { "x": 8.0, "y": 0.0, "z": 10.0 },
+      "rotationY": 90,
+      "parameters": { "bumperForce": 12.0 }
+    },
+    {
+      "id": "launcher_001",
+      "prefabId": "trap_launcher",
+      "position": { "x": 10.0, "y": 0.0, "z": 12.0 },
+      "rotationY": 180,
+      "parameters": { "detectionRange": 8.0, "launchForce": 15.0 }
+    },
+    {
+      "id": "trampoline_001",
+      "prefabId": "platform_trampoline",
+      "position": { "x": 8.0, "y": 0.0, "z": 14.0 },
+      "rotationY": 0,
+      "parameters": { "trampolineForce": 10.0 }
+    },
+    {
+      "id": "fan_001",
+      "prefabId": "trap_fan",
+      "position": { "x": 8.0, "y": 0.0, "z": 16.0 },
+      "rotationY": 270,
+      "parameters": { "fanForce": 6.0 }
+    },
+    {
+      "id": "platform_002",
+      "prefabId": "platform_basic",
+      "position": { "x": 8.0, "y": 0.0, "z": 18.0 },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "finish_001",
+      "prefabId": "platform_finish",
+      "position": { "x": 8.0, "y": 0.0, "z": 20.0 },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "decoration_001",
+      "prefabId": "decoration_crate_01",
+      "position": { "x": 10.0, "y": 0.0, "z": 18.0 },
+      "rotationY": 90,
+      "parameters": {}
+    }
+  ]
+}
