@@ -2,7 +2,7 @@
 
 ## Overview
 
-Factory Frenzy is a Unity proof-of-concept inspired by obstacle-course games such as *Fall Guys*. It consists of two separate applications: a **VR level editor** and a **PC multiplayer racing game**.
+Factory Frenzy is a Unity proof-of-concept inspired by obstacle-course games such as *Fall Guys*. It consists of two separate applications: a [**VR level editor**](https://github.com/Tijjat/Project-RARV-VR) and a **PC multiplayer racing game**.
 
 This repository contains the **PC Multiplayer** game. Players compete in a third-person obstacle course; the first player to cross the finish line wins. Levels can initially be assembled directly in Unity for testing, with JSON import connecting the game to the VR editor.
 
@@ -81,7 +81,7 @@ Replace this text with a link to the actual VR repository once available.
 
 ## Academic Context
 
-Developed as part of the **Factory Frenzy** final Unity project at **CESI**. The project brief specifies a ten-day proof of concept, with separate VR (https://github.com/Tijjat/Project-RARV-VR) and PC applications exchanging levels via JSON.
+Developed as part of the **Factory Frenzy** final Unity project at **CESI**. The project brief specifies a ten-day proof of concept, with separate VR and PC applications exchanging levels via JSON.
 
 ## Credits
 
