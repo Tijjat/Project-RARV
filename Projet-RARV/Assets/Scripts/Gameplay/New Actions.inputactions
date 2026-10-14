@@ -1,0 +1,34 @@
+{
+    "name": "New Actions",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "7298eea7-621f-4388-9cb9-a0d96d508e43",
+            "actions": [
+                {
+                    "name": "defocus",
+                    "type": "Button",
+                    "id": "6e8fc1af-8447-4923-a088-366fc5f6b4a3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1ae9a5d2-5198-45ef-bc51-2dd182e83d0c",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "defocus",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
