@@ -675,7 +675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4734094388180434303}
   m_Layer: 0
-  m_Name: SnapPoint_Entrance
+  m_Name: Snap_Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
