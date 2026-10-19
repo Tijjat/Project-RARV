@@ -796,7 +796,7 @@ MonoBehaviour:
     networked: 0
   - prefabId: trap_launcher
     prefab: {fileID: 5308511643935500051, guid: ced8c2193a5ba5f47aeb406dff909aa0, type: 3}
-    networked: 0
+    networked: 1
   localLevelRoot: {fileID: 0}
   allowInvalidLevelsForTesting: 0
 --- !u!114 &662909995
