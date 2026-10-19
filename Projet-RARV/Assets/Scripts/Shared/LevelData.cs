@@ -39,7 +39,7 @@ public class LevelObjectData
 [Serializable]
 public class LevelObjectParameters
 {
-    // Moving platform: world-space endpoints and travel duration in seconds.
+    // Moving platform: distance, speed and pause.
     public float distance = 5f;
     public float speed = 2f;
     public float pauseAtEnds = 0.5f;
