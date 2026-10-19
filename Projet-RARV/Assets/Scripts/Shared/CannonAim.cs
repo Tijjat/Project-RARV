@@ -7,15 +7,20 @@ public class CannonAim : MonoBehaviour
     [SerializeField] private Transform yawPivot;
     [SerializeField] private Transform pitchPivot;
 
-    [Header("Detection")]
-    [SerializeField] private float detectionRadius = 15f;
-    [SerializeField] private LayerMask playerLayer;
-
     [Header("Rotation Settings")]
     [SerializeField] private float yawSpeed = 90f;
     [SerializeField] private float pitchSpeed = 45f;
     [SerializeField] private float maxElevation = 45f;
     [SerializeField] private float maxDepression = 10f;
+
+    [Header("Detection")]
+    [SerializeField] private Transform detectionCenter;
+    [SerializeField] private float detectionRadius = 15f;
+    [SerializeField] private LayerMask playerLayer;
+
+    [Header("Aiming")]
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float targetHeightOffset = 1f;
 
     private Transform target;
     private Quaternion initialPitchRotation;
@@ -38,10 +43,10 @@ public class CannonAim : MonoBehaviour
     private Transform FindClosestPlayer()
     {
         Collider[] players = Physics.OverlapSphere(
-            transform.position,
-            detectionRadius,
-            playerLayer
-        );
+        detectionCenter.position,
+        detectionRadius,
+        playerLayer
+    );
 
         Transform closest = null;
         float closestDistance = float.MaxValue;
@@ -49,7 +54,7 @@ public class CannonAim : MonoBehaviour
         foreach (Collider player in players)
         {
             float distance = Vector3.Distance(
-                transform.position,
+                detectionCenter.position,
                 player.transform.position
             );
 
@@ -65,14 +70,20 @@ public class CannonAim : MonoBehaviour
 
     private void AimAtTarget()
     {
-        // Horizontal aiming
-        Vector3 direction = target.position - yawPivot.position;
-        direction.y = 0f;
+        // Aim at the player's body rather than their feet.
+        Vector3 targetPosition =
+            target.position + Vector3.up * targetHeightOffset;
 
-        if (direction.sqrMagnitude > 0.001f)
+        // Horizontal aiming
+        Vector3 horizontalDirection =
+            targetPosition - yawPivot.position;
+
+        horizontalDirection.y = 0f;
+
+        if (horizontalDirection.sqrMagnitude > 0.001f)
         {
             Quaternion desiredYaw =
-                Quaternion.LookRotation(direction, Vector3.up);
+                Quaternion.LookRotation(horizontalDirection, Vector3.up);
 
             yawPivot.rotation = Quaternion.RotateTowards(
                 yawPivot.rotation,
@@ -81,26 +92,27 @@ public class CannonAim : MonoBehaviour
             );
         }
 
-        // Vertical aiming
-        Vector3 localDirection =
-            yawPivot.InverseTransformDirection(
-                target.position - pitchPivot.position
-            );
+        // Vertical aiming from the actual projectile origin
+        Vector3 direction =
+            targetPosition - firePoint.position;
 
-        float angle = Mathf.Atan2(
+        Vector3 localDirection =
+            yawPivot.InverseTransformDirection(direction);
+
+        float desiredAngle = Mathf.Atan2(
             localDirection.y,
             localDirection.z
         ) * Mathf.Rad2Deg;
 
-        angle = Mathf.Clamp(
-            angle,
+        desiredAngle = Mathf.Clamp(
+            desiredAngle,
             -maxDepression,
             maxElevation
         );
 
         Quaternion desiredPitch =
             initialPitchRotation *
-            Quaternion.Euler(-angle, 0f, 0f);
+            Quaternion.Euler(-desiredAngle, 0f, 0f);
 
         pitchPivot.localRotation = Quaternion.RotateTowards(
             pitchPivot.localRotation,
@@ -111,9 +123,12 @@ public class CannonAim : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        if (detectionCenter == null)
+            return;
+
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(
-            transform.position,
+            detectionCenter.position,
             detectionRadius
         );
     }

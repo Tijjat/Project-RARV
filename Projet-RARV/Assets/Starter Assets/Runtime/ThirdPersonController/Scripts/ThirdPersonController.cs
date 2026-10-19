@@ -75,6 +75,11 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        [Header("External Forces")]
+        [SerializeField] private float knockbackDamping = 3f;
+        [SerializeField] private float knockbackGravity = -15f;
+
+        private Vector3 _knockbackVelocity;
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -268,8 +273,29 @@ namespace StarterAssets
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
             // move the player
-            _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
-                             new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+            Vector3 movement =
+                targetDirection.normalized * _speed +
+                new Vector3(0f, _verticalVelocity, 0f) +
+                new Vector3(
+                    _knockbackVelocity.x,
+                    0f,
+                    _knockbackVelocity.z
+                );
+
+                        _controller.Move(movement * Time.deltaTime);
+
+                        // Gradually reduce horizontal knockback.
+                        _knockbackVelocity.x = Mathf.MoveTowards(
+                            _knockbackVelocity.x,
+                            0f,
+                            knockbackDamping * Time.deltaTime
+                        );
+
+                        _knockbackVelocity.z = Mathf.MoveTowards(
+                            _knockbackVelocity.z,
+                            0f,
+                            knockbackDamping * Time.deltaTime
+                        );
 
             // update animator if using character
             if (_hasAnimator)
@@ -367,6 +393,17 @@ namespace StarterAssets
             Gizmos.DrawSphere(
                 new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
                 GroundedRadius);
+        }
+
+        public void ApplyKnockback(Vector3 velocity)
+        {
+            _knockbackVelocity = velocity;
+
+            // Allow the player to be launched upward.
+            if (velocity.y > 0f)
+            {
+                _verticalVelocity = velocity.y;
+            }
         }
 
         private void OnFootstep(AnimationEvent animationEvent)

@@ -103,6 +103,15 @@ namespace Gameplay
         [Range(0.0f, 0.3f)]
         public float RotationSmoothTime = 0.12f;
 
+        [Header("Knockback")]
+        [SerializeField] private float knockbackDamping = 5f;
+
+        private Vector3 _knockbackVelocity;
+
+        [Header("Air Control")]
+        [SerializeField, Range(0f, 1f)]
+        private float airControl = 0.4f;
+
         #endregion
 
         #region Unity Methods
@@ -165,50 +174,73 @@ namespace Gameplay
 
         private void Move()
         {
-            var move = _actionInput.move;
-            float speedOffset = 0.1f;
-            // set target speed based on move speed, sprint speed and if sprint is pressed
-            float targetSpeed = _actionInput.sprint ? SprintSpeed : MoveSpeed;
-            targetSpeed = (move == Vector2.zero) ? 0.0f : targetSpeed;
+            Vector2 move = _actionInput.move;
 
-            // a reference to the players current horizontal velocity
-            float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+            float targetSpeed = _actionInput.sprint
+                ? SprintSpeed
+                : MoveSpeed;
 
+            if (move == Vector2.zero)
+                targetSpeed = 0f;
 
-            // accelerate or decelerate to target speed
-            if (currentHorizontalSpeed < targetSpeed - speedOffset || currentHorizontalSpeed > targetSpeed + speedOffset)
-            {
-                // creates curved result rather than a linear one giving a more organic speed change
-                // note T in Lerp is clamped, so we don't need to clamp our speed
-                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed, Time.deltaTime * SpeedChangeRate);
+            // Normal movement speed, independent of knockback
+            _speed = Mathf.MoveTowards(
+                _speed,
+                targetSpeed,
+                SpeedChangeRate * Time.deltaTime
+            );
 
-                // round speed to 3 decimal places
-                _speed = Mathf.Round(_speed * 1000f) / 1000f;
-            }
-            else
-            {
-                _speed = targetSpeed;
-            }
             _animationBlend = _speed;
-            if (_animationBlend < 0.01f) _animationBlend = 0f;
 
+            if (_animationBlend < 0.01f)
+                _animationBlend = 0f;
 
-            // normalise input direction
-            Vector3 inputDirection = new Vector3(move.x, 0.0f, move.y).normalized;
+            // Movement direction
+            Vector3 inputDirection = Vector3.zero;
 
-            // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-            // if there is a move input rotate player when the player is moving
             if (move != Vector2.zero)
             {
-                inputDirection = transform.right * move.x + transform.forward * move.y;
+                inputDirection =
+                    transform.right * move.x +
+                    transform.forward * move.y;
+
+                inputDirection.Normalize();
             }
+
+            // Normal movement
+            float controlMultiplier = Grounded ? 1f : airControl;
+
+            Vector3 normalMovement =
+                inputDirection * _speed * controlMultiplier;
+
+            // External forces
+            Vector3 externalMovement = _knockbackVelocity;
+
+            // Gravity and jumping
+            Vector3 verticalMovement =
+                Vector3.up * _verticalVelocity;
+
+            // Combine movement once
+            Vector3 finalMovement =
+                normalMovement +
+                externalMovement +
+                verticalMovement;
+
             if (_controller.enabled)
             {
-                _controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+                _controller.Move(finalMovement * Time.deltaTime);
             }
-            // update animator if using character
+
+            // Reduce knockback over time
+            _knockbackVelocity = Vector3.MoveTowards(
+                _knockbackVelocity,
+                Vector3.zero,
+                knockbackDamping * Time.deltaTime
+            );
+
+            // Update animations
             _animator.SetFloat(_animIDSpeed, _animationBlend);
-            _animator.SetFloat(_animIDMotionSpeed, 1);
+            _animator.SetFloat(_animIDMotionSpeed, 1f);
         }
 
         protected void Look()
@@ -337,6 +369,22 @@ namespace Gameplay
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
+        }
+
+        public void ApplyKnockback(Vector3 force)
+        {
+            if (!IsOwner)
+                return;
+
+            _knockbackVelocity = new Vector3(force.x, 0f, force.z);
+
+            if (force.y > 0f)
+            {
+                _verticalVelocity = force.y;
+                Grounded = false;
+            }
+
+            Debug.Log($"Knockback applied: {force}");
         }
         #endregion
     }
