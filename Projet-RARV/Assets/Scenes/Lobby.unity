@@ -692,6 +692,8 @@ GameObject:
   - component: {fileID: 662909990}
   - component: {fileID: 662909991}
   - component: {fileID: 662909992}
+  - component: {fileID: 662909994}
+  - component: {fileID: 662909995}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -766,6 +768,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   ShowTopMostFoldoutHeaderGroup: 1
+--- !u!114 &662909994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662909986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e598722dcda344995952578f4d1ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelMapLoader
+  ShowTopMostFoldoutHeaderGroup: 1
+  prefabs:
+  - prefabId: platform_start
+    prefab: {fileID: 5969360184590892687, guid: 6147d160c9dfc454f95ef7062e91ab1b, type: 3}
+    networked: 0
+  - prefabId: platform_finish
+    prefab: {fileID: 5969360184590892687, guid: f52ac28b53be6f946b0c16aa637d6e29, type: 3}
+    networked: 0
+  - prefabId: platform_basic
+    prefab: {fileID: 5308511643935500051, guid: deeedbe01522a6144aca42ccd50b9c50, type: 3}
+    networked: 0
+  - prefabId: checkpoint
+    prefab: {fileID: 5308511643935500051, guid: caa80b0f11126a34d8e359f2dcb17b83, type: 3}
+    networked: 0
+  - prefabId: trap_launcher
+    prefab: {fileID: 5308511643935500051, guid: ced8c2193a5ba5f47aeb406dff909aa0, type: 3}
+    networked: 0
+  localLevelRoot: {fileID: 0}
+  allowInvalidLevelsForTesting: 0
+--- !u!114 &662909995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662909986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50fcdd3f26acbec4892fedda53eed4c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameLevelLauncher
+  ShowTopMostFoldoutHeaderGroup: 1
+  levelMapLoader: {fileID: 662909994}
+  levelJson: {fileID: 4900000, guid: 68ee1f3df9411f842806bb935c48f662, type: 3}
+  gameSceneName: Game
 --- !u!1 &682121633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,7 +1526,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaunchGameButton
   ShowTopMostFoldoutHeaderGroup: 1
-  GameSceneName: Laboratory
+  GameSceneName: Game
+  gameLevelLauncher: {fileID: 0}
 --- !u!1 &1279722206
 GameObject:
   m_ObjectHideFlags: 0
