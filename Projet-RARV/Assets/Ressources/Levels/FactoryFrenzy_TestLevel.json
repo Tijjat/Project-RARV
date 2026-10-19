@@ -48,8 +48,8 @@
       "parameters": {}
     },
     {
-      "id": "cannon_001",
-      "prefabId": "trap_launcher",
+      "id": "straight_002",
+      "prefabId": "platform_basic",
       "position": {
         "x": 0.0,
         "y": 0.0,
@@ -59,7 +59,7 @@
       "parameters": {}
     },
     {
-      "id": "straight_002",
+      "id": "straight_003",
       "prefabId": "platform_basic",
       "position": {
         "x": 0.0,
@@ -70,7 +70,7 @@
       "parameters": {}
     },
     {
-      "id": "straight_003",
+      "id": "straight_004",
       "prefabId": "platform_basic",
       "position": {
         "x": 0.0,
@@ -81,7 +81,7 @@
       "parameters": {}
     },
     {
-      "id": "straight_004",
+      "id": "straight_005",
       "prefabId": "platform_basic",
       "position": {
         "x": 0.0,
@@ -92,7 +92,7 @@
       "parameters": {}
     },
     {
-      "id": "straight_005",
+      "id": "straight_006",
       "prefabId": "platform_basic",
       "position": {
         "x": 0.0,
@@ -103,15 +103,19 @@
       "parameters": {}
     },
     {
-      "id": "straight_006",
-      "prefabId": "platform_basic",
+      "id": "moving_trap_01",
+      "prefabId": "trap_moving",
       "position": {
         "x": 0.0,
         "y": 0.0,
-        "z": 72.5
+        "z": 70.0
       },
       "rotationY": 0,
-      "parameters": {}
+      "parameters": {
+      "distance": 5.0,
+      "speed": 2.0,
+      "pauseAtEnds": 0.5
+      }
     },
     {
       "id": "cannon_002",
@@ -119,7 +123,7 @@
       "position": {
         "x": 0.0,
         "y": 0.0,
-        "z": 82.5
+        "z": 77.5
       },
       "rotationY": 0,
       "parameters": {}
@@ -130,10 +134,25 @@
       "position": {
         "x": 0.0,
         "y": 0.0,
-        "z": 92.5
+        "z": 87.5
       },
       "rotationY": 0,
       "parameters": {}
+    },
+    {
+      "id": "moving_trap_002",
+      "prefabId": "trap_moving",
+      "position": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": 30.0
+      },
+      "rotationY": 90,
+      "parameters": {
+      "distance": 5.0,
+      "speed": 2.0,
+      "pauseAtEnds": 0.5
+      }
     },
     {
       "id": "finish_001",
@@ -141,7 +160,7 @@
       "position": {
         "x": 0.0,
         "y": 0.0,
-        "z": 100.0
+        "z": 85.0
       },
       "rotationY": 0,
       "parameters": {}

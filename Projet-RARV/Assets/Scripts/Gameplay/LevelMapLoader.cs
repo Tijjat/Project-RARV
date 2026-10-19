@@ -82,6 +82,23 @@ public class LevelMapLoader : NetworkBehaviour
                 Quaternion.Euler(0f, obj.rotationY, 0f)
             );
             instance.name = obj.id;
+            if (obj.prefabId == "platform_moving")
+            {
+                MovingPlatform movingPlatform =
+                    instance.GetComponent<MovingPlatform>();
+
+                if (movingPlatform != null)
+                {
+                    if (obj.parameters != null)
+                    {
+                        movingPlatform.Configure(
+                            obj.parameters.distance,
+                            obj.parameters.speed,
+                            obj.parameters.pauseAtEnds
+                        );
+                    }
+                }
+            }
             NetworkObject networkObject = instance.GetComponent<NetworkObject>();
             if (networkObject == null)
             {

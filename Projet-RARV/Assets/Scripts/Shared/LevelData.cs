@@ -40,9 +40,9 @@ public class LevelObjectData
 public class LevelObjectParameters
 {
     // Moving platform: world-space endpoints and travel duration in seconds.
-    public Vector3 moveStart = Vector3.zero;
-    public Vector3 moveEnd = Vector3.zero;
-    public float travelTime = 3f;
+    public float distance = 5f;
+    public float speed = 2f;
+    public float pauseAtEnds = 0.5f;
 
     // Launcher, bumper, fan, trampoline: optional per-object overrides.
     // The PC game can use prefab defaults where these values are not configurable.

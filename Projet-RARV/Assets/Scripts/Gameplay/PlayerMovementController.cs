@@ -111,7 +111,9 @@ namespace Gameplay
         [Header("Air Control")]
         [SerializeField, Range(0f, 1f)]
         private float airControl = 0.4f;
-
+        private MovingPlatform currentPlatform;
+        private MovingPlatform previousPlatform;
+        private Vector3 previousPlatformPosition;
         #endregion
 
         #region Unity Methods
@@ -172,6 +174,7 @@ namespace Gameplay
 
         #region Movements
 
+
         private void Move()
         {
             Vector2 move = _actionInput.move;
@@ -183,7 +186,6 @@ namespace Gameplay
             if (move == Vector2.zero)
                 targetSpeed = 0f;
 
-            // Normal movement speed, independent of knockback
             _speed = Mathf.MoveTowards(
                 _speed,
                 targetSpeed,
@@ -195,7 +197,7 @@ namespace Gameplay
             if (_animationBlend < 0.01f)
                 _animationBlend = 0f;
 
-            // Movement direction
+            // Movement direction relative to the player
             Vector3 inputDirection = Vector3.zero;
 
             if (move != Vector2.zero)
@@ -213,22 +215,47 @@ namespace Gameplay
             Vector3 normalMovement =
                 inputDirection * _speed * controlMultiplier;
 
-            // External forces
+            // Cannon knockback
             Vector3 externalMovement = _knockbackVelocity;
 
             // Gravity and jumping
             Vector3 verticalMovement =
                 Vector3.up * _verticalVelocity;
 
-            // Combine movement once
+            // Detect platform before moving
+            DetectMovingPlatform();
+
+            // Carry the player with the platform
+            Vector3 platformMovement = Vector3.zero;
+
+            if (currentPlatform != null && Grounded)
+            {
+                if (currentPlatform == previousPlatform)
+                {
+                    platformMovement =
+                        currentPlatform.transform.position -
+                        previousPlatformPosition;
+                }
+
+                previousPlatformPosition =
+                    currentPlatform.transform.position;
+            }
+
+            previousPlatform = currentPlatform;
+
+            // Combine velocity-based movement
             Vector3 finalMovement =
                 normalMovement +
                 externalMovement +
                 verticalMovement;
 
+            // Apply everything in one CharacterController.Move()
             if (_controller.enabled)
             {
-                _controller.Move(finalMovement * Time.deltaTime);
+                _controller.Move(
+                    finalMovement * Time.deltaTime +
+                    platformMovement
+                );
             }
 
             // Reduce knockback over time
@@ -242,6 +269,7 @@ namespace Gameplay
             _animator.SetFloat(_animIDSpeed, _animationBlend);
             _animator.SetFloat(_animIDMotionSpeed, 1f);
         }
+
 
         protected void Look()
         {
@@ -309,6 +337,8 @@ namespace Gameplay
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
         }
+
+
 
         #endregion
 
@@ -386,6 +416,35 @@ namespace Gameplay
 
             Debug.Log($"Knockback applied: {force}");
         }
+
+        private void DetectMovingPlatform()
+        {
+            currentPlatform = null;
+
+            if (!Grounded || !_controller.enabled)
+                return;
+
+            // Bottom of the CharacterController capsule
+            Vector3 feetPosition =
+                transform.TransformPoint(_controller.center) -
+                Vector3.up * (_controller.height * 0.5f);
+
+            Vector3 rayOrigin = feetPosition + Vector3.up * 0.2f;
+
+            if (Physics.Raycast(
+                rayOrigin,
+                Vector3.down,
+                out RaycastHit hit,
+                0.5f,
+                ~LayerMask.GetMask("Player"),
+                QueryTriggerInteraction.Ignore
+            ))
+            {
+                currentPlatform =
+                    hit.collider.GetComponentInParent<MovingPlatform>();
+            }
+        }
+
         #endregion
     }
 }

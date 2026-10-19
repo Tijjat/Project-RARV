@@ -277,7 +277,7 @@ MonoBehaviour:
   cannonballPrefab: {fileID: 7534117241060572171, guid: c879683996368ba41b6f14d0c90f5884, type: 3}
   aimTime: 1.5
   cooldown: 3
-  projectileSpeed: 40
+  projectileSpeed: 30
   maxAimError: 8
 --- !u!1 &5373361424190896203
 GameObject:
