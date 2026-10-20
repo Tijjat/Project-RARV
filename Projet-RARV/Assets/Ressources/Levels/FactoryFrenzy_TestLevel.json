@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
   "levelId": "all_prefabs_turns_test_v2",
-  "levelName": "All Prefabs Test - Two Turns and Checkpoint Shortcut",
+  "levelName": "Test Map",
   "isValid": true,
   "grid": {
     "width": 30,
@@ -186,16 +186,16 @@
       "id": "fan_01",
       "prefabId": "trap_fan",
       "position": {
-        "x": 15,
-        "y": 0,
-        "z": 90
+          "x": 15,
+          "y": 0,
+          "z": 90 
       },
       "rotationY": 0,
       "parameters": {
         "windForce": 20.0,
         "sweepAngle": 45.0,
         "sweepSpeed": 45.0,
-        "activeDuration": 5.0,
+        "activeDuration": 4.0,
         "cooldownDuration": 2.0
       }
     }
