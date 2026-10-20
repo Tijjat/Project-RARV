@@ -8,12 +8,12 @@ public class GameLevelLauncher : NetworkBehaviour
 {
     [Header("Level")]
     [SerializeField] private LevelMapLoader levelMapLoader;
-    [SerializeField] private TextAsset levelJson;
 
     [Header("Scene")]
     [SerializeField] private string gameSceneName = "Game";
 
     private bool waitingForScene;
+    private string selectedLevelJson;
 
     public override void OnNetworkSpawn()
     {
@@ -37,13 +37,33 @@ public class GameLevelLauncher : NetworkBehaviour
         if (!IsServer)
             return false;
 
-        if (levelMapLoader == null || levelJson == null)
+        if (levelMapLoader == null)
         {
-            Debug.LogError("LevelMapLoader or Level JSON is missing.");
+            Debug.LogError("LevelMapLoader is missing.");
             return false;
         }
 
+        if (LevelManager.Instance == null ||
+            LevelManager.Instance.SelectedLevel == null)
+        {
+            Debug.LogError(
+                "No map selected. Select a map before launching."
+            );
+            return false;
+        }
+
+        // Capture the selected map before switching scenes.
+        selectedLevelJson = LevelJson.Serialize(
+            LevelManager.Instance.SelectedLevel
+        );
+
         waitingForScene = true;
+
+        Debug.Log(
+            $"[GameLevelLauncher] Prepared map: " +
+            LevelManager.Instance.SelectedLevel.levelName
+        );
+
         return true;
     }
 
@@ -63,12 +83,20 @@ public class GameLevelLauncher : NetworkBehaviour
 
         if (clientsTimedOut.Count > 0)
         {
-            Debug.LogError("Some clients failed to load the game scene.");
+            Debug.LogError(
+                "Some clients failed to load the game scene."
+            );
             return;
         }
 
-        Debug.Log("Game scene loaded. Generating level...");
+        if (string.IsNullOrEmpty(selectedLevelJson))
+        {
+            Debug.LogError("Selected level JSON is empty.");
+            return;
+        }
 
-        levelMapLoader.LoadLevelOnServer(levelJson.text);
+        Debug.Log("Game scene loaded. Generating selected level...");
+
+        levelMapLoader.LoadLevelOnServer(selectedLevelJson);
     }
 }

@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
   "levelId": "all_prefabs_turns_test_v2",
-  "levelName": "All Prefabs Test - Two Turns and Checkpoint Shortcut",
+  "levelName": "Test Map",
   "isValid": true,
   "grid": {
     "width": 30,
