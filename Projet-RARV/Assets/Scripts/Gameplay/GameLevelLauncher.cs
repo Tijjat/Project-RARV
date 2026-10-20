@@ -67,13 +67,56 @@ public class GameLevelLauncher : NetworkBehaviour
         return true;
     }
 
+
     private void OnSceneLoaded(
         string sceneName,
         LoadSceneMode loadSceneMode,
         List<ulong> clientsCompleted,
         List<ulong> clientsTimedOut)
     {
-        if (!IsServer || !waitingForScene)
+        Debug.Log(
+            $"[GameLevelLauncher] Scene event: {sceneName}, " +
+            $"Waiting={waitingForScene}, IsServer={IsServer}, " +
+            $"TimedOut={clientsTimedOut.Count}"
+        );
+
+        if (!IsServer)
+            return;
+
+        // RETURNING TO LOBBY
+        if (sceneName == "Lobby")
+        {
+            waitingForScene = false;
+
+            if (clientsTimedOut.Count > 0)
+            {
+                Debug.LogWarning(
+                    "[Lobby] Some clients did not finish loading."
+                );
+            }
+
+            LobbySpawnManager spawnManager =
+                LobbySpawnManager.Instance;
+
+            if (spawnManager == null)
+            {
+                Debug.LogError(
+                    "[Lobby] LobbySpawnManager not found!"
+                );
+                return;
+            }
+
+            Debug.Log(
+                "[Lobby] Lobby loaded. Repositioning players..."
+            );
+
+            spawnManager.PositionExistingPlayers();
+
+            return;
+        }
+
+        // LAUNCHING GAME
+        if (!waitingForScene)
             return;
 
         if (sceneName != gameSceneName)
@@ -95,8 +138,11 @@ public class GameLevelLauncher : NetworkBehaviour
             return;
         }
 
-        Debug.Log("Game scene loaded. Generating selected level...");
+        Debug.Log(
+            "Game scene loaded. Generating selected level..."
+        );
 
         levelMapLoader.LoadLevelOnServer(selectedLevelJson);
     }
+
 }

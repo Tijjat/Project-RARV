@@ -46,44 +46,52 @@ namespace Gameplay
             // Collect player information.
             List<PlayerData> players = new List<PlayerData>();
 
-            foreach (PlayerData data in FindObjectsByType<PlayerData>(FindObjectsSortMode.None))
+            foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
             {
-                if (data.IsSpawned && data.PlayerTime.Value != 0)
-                    players.Add(data);
+                if (client.PlayerObject == null)
+                    continue;
+
+                if (client.PlayerObject.TryGetComponent<PlayerData>(out var data))
+                {
+                    {
+                        if (data.IsSpawned && data.PlayerTime.Value != 0)
+                            players.Add(data);
+                    }
+
+                    players = players
+                        .OrderBy(p => p.PlayerTime.Value)
+                        .ThenBy(p => p.PlayerPseudo.Value.ToString())
+                        .ToList();
+
+                    // Create one row per player.
+                    for (int i = 0; i < players.Count; i++)
+                    {
+                        ScoreboardRow row =
+                            Instantiate(scoreRowPrefab, scoreList);
+                        int seconds = Mathf.CeilToInt(
+                            (float)players[i].PlayerTime.Value
+                        );
+
+                        int minutes = seconds / 60;
+                        int remainingSeconds = seconds % 60;
+
+                        string timerText =
+                            $"{minutes:00}:{remainingSeconds:00}";
+
+                        row.Setup(
+                            i + 1,
+                            players[i].PlayerPseudo.Value.ToString(),
+                            timerText
+                        );
+                    }
+                }
+
+                endGamePanel.SetActive(true);
+
+                // Unlock the cursor to allow future menu interaction.
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
-
-            players = players
-                .OrderBy(p => p.PlayerTime.Value)
-                .ThenBy(p => p.PlayerPseudo.Value.ToString())
-                .ToList();
-
-            // Create one row per player.
-            for (int i = 0; i < players.Count; i++)
-            {
-                ScoreboardRow row =
-                    Instantiate(scoreRowPrefab, scoreList);
-                int seconds = Mathf.CeilToInt(
-                    (float)players[i].PlayerTime.Value
-                );
-
-                int minutes = seconds / 60;
-                int remainingSeconds = seconds % 60;
-
-                string timerText =
-                    $"{minutes:00}:{remainingSeconds:00}";
-
-                row.Setup(
-                    i + 1,
-                    players[i].PlayerPseudo.Value.ToString(),
-                    timerText
-                );
-            }
-
-            endGamePanel.SetActive(true);
-
-            // Unlock the cursor to allow future menu interaction.
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
         }
     }
 }

@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
   "levelId": "all_prefabs_turns_test_v2",
-  "levelName": "Test Map Copy",
+  "levelName": "Test Map Hard",
   "isValid": true,
   "grid": {
     "width": 30,
@@ -56,17 +56,6 @@
         "z": 27.5
       },
       "rotationY": 0,
-      "parameters": {}
-    },
-    {
-      "id": "finish_shortcut",
-      "prefabId": "platform_finish",
-      "position": {
-        "x": 5.0,
-        "y": 0.0,
-        "z": 27.5
-      },
-      "rotationY": 90,
       "parameters": {}
     },
     {
@@ -198,6 +187,17 @@
         "activeDuration": 4.0,
         "cooldownDuration": 2.0
       }
+    },
+    {
+      "id": "finish_shortcut",
+      "prefabId": "platform_finish",
+      "position": {
+        "x": 15.0,
+        "y": 0.0,
+        "z": 100.0
+      },
+      "rotationY": 90,
+      "parameters": {}
     }
   ]
 }

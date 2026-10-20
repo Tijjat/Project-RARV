@@ -161,7 +161,7 @@ MonoBehaviour:
       - {fileID: 11400000, guid: e0b82e6e0843ff343b9796bf977238c3, type: 2}
     TickRate: 30
     ClientConnectionBufferTimeout: 10
-    ConnectionApproval: 0
+    ConnectionApproval: 1
     ConnectionData: 
     EnableTimeResync: 0
     TimeResyncInterval: 30
@@ -307,7 +307,6 @@ GameObject:
   - component: {fileID: 1414185885}
   - component: {fileID: 1414185884}
   - component: {fileID: 1414185883}
-  - component: {fileID: 1414185882}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -315,18 +314,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1414185882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414185881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecefe50936ab90543865f13ceb955c54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DontDestroyOnLoad
 --- !u!114 &1414185883
 MonoBehaviour:
   m_ObjectHideFlags: 0

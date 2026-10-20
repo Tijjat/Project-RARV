@@ -22,13 +22,18 @@ public class ConnectionApprovalHandler : MonoBehaviour
         {
             m_NetworkManager.ConnectionApprovalCallback += CheckApprovalCallback;
             m_NetworkManager.OnClientDisconnectCallback += OnClientDisconnectCallback;
+            m_NetworkManager.OnClientConnectedCallback += OnClientConnected;
         }
+
     }
 
     private void CheckApprovalCallback(
     ConnectionApprovalRequest request,
     ConnectionApprovalResponse response)
     {
+        Debug.Log(
+            $"[Approval] Callback called for client {request.ClientNetworkId}"
+        );
         if (_gameLaunched)
         {
             Debug.LogWarning(
@@ -55,8 +60,35 @@ public class ConnectionApprovalHandler : MonoBehaviour
 
         response.Approved = true;
         response.CreatePlayerObject = true;
-        response.Position = new Vector3(0, 3, 0);
+        LobbySpawnManager spawnManager = LobbySpawnManager.Instance;
+        Debug.Log(
+            $"[Spawn] Manager found: {LobbySpawnManager.Instance != null}"
+        );
+
+
+        if (spawnManager != null)
+        {
+            Transform spawn = spawnManager.GetSpawnPoint(request.ClientNetworkId);
+
+            if (spawn != null)
+            {
+                response.Position = spawn.position;
+                response.Rotation = spawn.rotation;
+
+                Debug.Log(
+                    $"[Spawn] Client {request.ClientNetworkId} " +
+                    $"spawning at {response.Position}"
+                );
+            }
+        }
+        else
+        {
+            // Lobby scene hasn't loaded yet.
+            // Use a temporary position until the Lobby teleport runs.
+            response.Position = new Vector3(0, 3, 0);
+        }
     }
+
 
     public void SetGameLaunched()
     {
@@ -69,6 +101,12 @@ public class ConnectionApprovalHandler : MonoBehaviour
 
     private void OnClientDisconnectCallback(ulong clientID)
     {
+        if (m_NetworkManager.IsServer &&
+            LobbySpawnManager.Instance != null)
+        {
+            LobbySpawnManager.Instance.ReleaseSpawnPoint(clientID);
+        }
+
         if (!m_NetworkManager.IsServer &&
             !string.IsNullOrEmpty(m_NetworkManager.DisconnectReason))
         {
@@ -85,5 +123,28 @@ public class ConnectionApprovalHandler : MonoBehaviour
 
         m_NetworkManager.ConnectionApprovalCallback -= CheckApprovalCallback;
         m_NetworkManager.OnClientDisconnectCallback -= OnClientDisconnectCallback;
+        m_NetworkManager.OnClientConnectedCallback -= OnClientConnected;
+    }
+    public void SetGameInLobby()
+    {
+        if (m_NetworkManager == null || !m_NetworkManager.IsServer)
+            return;
+
+        _gameLaunched = false;
+
+        Debug.Log("[Lobby] New connections are allowed again.");
+    }
+    private void OnClientConnected(ulong clientId)
+    {
+        if (!m_NetworkManager.IsServer)
+            return;
+
+        LobbySpawnManager spawnManager =
+            LobbySpawnManager.Instance;
+
+        if (spawnManager == null)
+            return;
+
+        spawnManager.PositionNewPlayer(clientId);
     }
 }

@@ -1,63 +1,69 @@
 
-using Gameplay;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LaunchGameButton : NetworkBehaviour
+[RequireComponent(typeof(Button))]
+public class LaunchGameButton : MonoBehaviour
 {
-    public string GameSceneName = "Game";
-
+    [SerializeField] private string gameSceneName = "Game";
     [SerializeField] private GameLevelLauncher gameLevelLauncher;
 
-    public override void OnNetworkSpawn()
+    private Button button;
+
+    private void Awake()
     {
-        base.OnNetworkSpawn();
+        button = GetComponent<Button>();
+        button.onClick.AddListener(LaunchGame);
 
-        if (!IsServer)
-        {
-            GetComponentInParent<Canvas>().gameObject.SetActive(false);
-            return;
-        }
+        Debug.Log("[Launch] Button listener registered.");
+    }
 
-        GetComponent<Button>().onClick.AddListener(LaunchGame);
+    private void OnDestroy()
+    {
+        if (button != null)
+            button.onClick.RemoveListener(LaunchGame);
     }
 
     private void LaunchGame()
     {
-        if (!IsServer)
+        Debug.Log("[Launch] Button clicked.");
+
+        if (NetworkManager.Singleton == null ||
+            !NetworkManager.Singleton.IsServer)
             return;
 
-        // Find the persistent LevelManager automatically
         if (gameLevelLauncher == null)
         {
             gameLevelLauncher =
-                FindFirstObjectByType<GameLevelLauncher>();
+                FindAnyObjectByType<GameLevelLauncher>();
         }
 
         if (gameLevelLauncher == null)
         {
-            Debug.LogError(
-                "GameLevelLauncher not found in the scene!"
-            );
+            Debug.LogError("GameLevelLauncher not found.");
             return;
         }
 
         if (!gameLevelLauncher.PrepareLevel())
+        {
+            Debug.LogError("Failed to prepare selected map.");
             return;
+        }
 
         ConnectionApprovalHandler approvalHandler =
             NetworkManager.Singleton
                 .GetComponent<ConnectionApprovalHandler>();
 
         if (approvalHandler != null)
-        {
             approvalHandler.SetGameLaunched();
-        }
 
-        NetworkManager.SceneManager.LoadScene(
-            GameSceneName,
-            UnityEngine.SceneManagement.LoadSceneMode.Single
+        var status = NetworkManager.Singleton.SceneManager.LoadScene(
+            gameSceneName,
+            LoadSceneMode.Single
         );
+
+        Debug.Log($"[Launch] Scene load status: {status}");
     }
 }
