@@ -169,6 +169,21 @@
       }
     },
     {
+      "id": "bumper_01",
+      "prefabId": "trap_bumper",
+      "position": {
+        "x": -5,
+        "y": 0,
+        "z": 10
+      },
+      "rotationY": 0,
+      "parameters": {
+        "pushForce": 10.0,
+        "upwardForce": 3.0,
+        "cooldown": 1.0
+      }
+    },
+    {
       "id": "finish_001",
       "prefabId": "platform_finish",
       "position": {
