@@ -1,77 +1,99 @@
 {
   "formatVersion": 1,
-  "levelId": "test_map_001",
-  "levelName": "Test Map",
+  "levelId": "all_prefabs_turns_test_v2",
+  "levelName": "All Prefabs Test - Two Turns and Checkpoint Shortcut",
   "isValid": true,
   "grid": {
-    "width": 20,
-    "length": 30,
-    "cellSize": 2.0,
+    "width": 30,
+    "length": 40,
+    "cellSize": 2.5,
     "origin": {
-      "x": -20.0,
+      "x": -15.0,
       "y": 0.0,
-      "z": -4.0
+      "z": -10.0
     }
   },
   "objects": [
     {
-      "id": "start_001",
+      "id": "start_01",
       "prefabId": "platform_start",
       "position": {
         "x": 0.0,
         "y": 0.0,
-        "z": 0.0
+        "z": 2.5
       },
       "rotationY": 180,
       "parameters": {}
     },
     {
-      "id": "straight_001",
-      "prefabId": "platform_basic",
+      "id": "long_01",
+      "prefabId": "platform_straight_01",
       "position": {
         "x": 0.0,
         "y": 0.0,
-        "z": 7.5
+        "z": 10.0
       },
       "rotationY": 0,
       "parameters": {}
     },
     {
-      "id": "checkpoint_001",
+      "id": "long_02",
+      "prefabId": "platform_straight_02",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 20.0
+      },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "checkpoint_01",
       "prefabId": "checkpoint",
       "position": {
         "x": 0.0,
         "y": 0.0,
-        "z": 15.0
+        "z": 27.5
       },
       "rotationY": 0,
       "parameters": {}
     },
     {
-      "id": "straight_002",
-      "prefabId": "platform_basic",
+      "id": "finish_shortcut",
+      "prefabId": "platform_finish",
       "position": {
-        "x": 0.0,
+        "x": 5.0,
         "y": 0.0,
-        "z": 22.5
+        "z": 27.5
       },
-      "rotationY": 0,
+      "rotationY": 90,
       "parameters": {}
     },
     {
-      "id": "straight_003",
-      "prefabId": "platform_basic",
+      "id": "short_01",
+      "prefabId": "platform_straight_04",
       "position": {
         "x": 0.0,
         "y": 0.0,
         "z": 32.5
       },
-      "rotationY": 180,
+      "rotationY": 0,
       "parameters": {}
     },
     {
-      "id": "straight_004",
-      "prefabId": "platform_basic",
+      "id": "short_02",
+      "prefabId": "platform_straight_05",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 37.5
+      },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "short_03",
+      "prefabId": "platform_straight_06",
       "position": {
         "x": 0.0,
         "y": 0.0,
@@ -81,103 +103,101 @@
       "parameters": {}
     },
     {
-      "id": "straight_005",
-      "prefabId": "platform_basic",
+      "id": "corner_01",
+      "prefabId": "platform_corner",
       "position": {
         "x": 0.0,
         "y": 0.0,
-        "z": 52.5
+        "z": 47.5
       },
       "rotationY": 0,
       "parameters": {}
     },
     {
-      "id": "straight_006",
-      "prefabId": "platform_basic",
+      "id": "curve_01",
+      "prefabId": "platform_curve",
       "position": {
-        "x": 0.0,
+        "x": 7.5,
         "y": 0.0,
-        "z": 62.5
+        "z": 50
       },
-      "rotationY": 0,
+      "rotationY": 180,
       "parameters": {}
     },
     {
-      "id": "moving_trap_01",
+      "id": "moving_01",
       "prefabId": "trap_moving",
       "position": {
-        "x": 0.0,
+        "x": 12.5,
         "y": 0.0,
-        "z": 70.0
+        "z": 57.5
       },
       "rotationY": 0,
       "parameters": {
-      "distance": 5.0,
-      "speed": 2.0,
-      "pauseAtEnds": 0.5
-      }
-    },
-    {
-      "id": "cannon_002",
-      "prefabId": "trap_launcher",
-      "position": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 77.5
-      },
-      "rotationY": 0,
-      "parameters": {}
-    },
-    {
-      "id": "straight_007",
-      "prefabId": "platform_basic",
-      "position": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 87.5
-      },
-      "rotationY": 0,
-      "parameters": {}
-    },
-    {
-      "id": "moving_trap_002",
-      "prefabId": "trap_moving",
-      "position": {
-        "x": 5.0,
-        "y": 0.0,
-        "z": 30.0
-      },
-      "rotationY": 90,
-      "parameters": {
-      "distance": 5.0,
-      "speed": 2.0,
-      "pauseAtEnds": 0.5
+        "distance": 5.0,
+        "speed": 2.0,
+        "pauseAtEnds": 0.5
       }
     },
     {
       "id": "trampoline_01",
       "prefabId": "platform_trampoline",
       "position": {
-        "x": 5.0,
+        "x": 15.0,
         "y": 0.0,
-        "z": 40.0
+        "z": 62.5
       },
-      "rotationY": 90,
+      "rotationY": 0,
       "parameters": {
         "launchForce": 12.0,
         "cooldown": 0.5
       }
     },
     {
-      "id": "finish_002",
-      "prefabId": "platform_finish",
+      "id": "bumper_01",
+      "prefabId": "trap_bumper",
       "position": {
-        "x": 5.0,
+        "x": 15.0,
         "y": 0.0,
-        "z": 45
+        "z": 80
       },
       "rotationY": 0,
-      "parameters": {}
+      "parameters": {
+        "pushForce": 10.0,
+        "upwardForce": 3.0,
+        "cooldown": 1.0
+      }
+    },
+    {
+      "id": "launcher_01",
+      "prefabId": "trap_launcher",
+      "position": {
+        "x": 15.0,
+        "y": 0.0,
+        "z": 70
+      },
+      "rotationY": 0,
+      "parameters": {
+        "detectionRange": 8.0,
+        "launchForce": 15.0
+      }
+    },
+    {
+      "id": "fan_01",
+      "prefabId": "trap_fan",
+      "position": {
+        "x": 15,
+        "y": 0,
+        "z": 90
+      },
+      "rotationY": 0,
+      "parameters": {
+        "windForce": 20.0,
+        "sweepAngle": 45.0,
+        "sweepSpeed": 45.0,
+        "activeDuration": 5.0,
+        "cooldownDuration": 2.0
+      }
     }
   ]
 }
