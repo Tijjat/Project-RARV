@@ -181,6 +181,23 @@
         "detectionRange": 8.0,
         "launchForce": 15.0
       }
+    },
+    {
+      "id": "fan_01",
+      "prefabId": "trap_fan",
+      "position": {
+        "x": 15,
+        "y": 0,
+        "z": 90
+      },
+      "rotationY": 0,
+      "parameters": {
+        "windForce": 20.0,
+        "sweepAngle": 45.0,
+        "sweepSpeed": 45.0,
+        "activeDuration": 5.0,
+        "cooldownDuration": 2.0
+      }
     }
   ]
 }

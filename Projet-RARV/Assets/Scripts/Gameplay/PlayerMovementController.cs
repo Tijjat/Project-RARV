@@ -466,6 +466,27 @@ namespace Gameplay
             Debug.Log($"Trampoline bounce: {launchForce}");
         }
 
+        public void ApplyWindForce(Vector3 acceleration)
+        {
+            if (!IsOwner)
+                return;
+
+            // Continuous horizontal acceleration
+            Vector3 horizontalAcceleration =
+                Vector3.ProjectOnPlane(acceleration, Vector3.up);
+
+            _knockbackVelocity +=
+                horizontalAcceleration * Time.fixedDeltaTime;
+
+            // Prevent excessive wind speed
+            const float maxExternalSpeed = 15f;
+
+            _knockbackVelocity = Vector3.ClampMagnitude(
+                _knockbackVelocity,
+                maxExternalSpeed
+            );
+        }
+
 
         #endregion
     }
