@@ -785,26 +785,50 @@ MonoBehaviour:
   - prefabId: platform_start
     prefab: {fileID: 5969360184590892687, guid: 6147d160c9dfc454f95ef7062e91ab1b, type: 3}
     networked: 0
-  - prefabId: platform_finish
-    prefab: {fileID: 5969360184590892687, guid: f52ac28b53be6f946b0c16aa637d6e29, type: 3}
-    networked: 0
-  - prefabId: platform_basic
-    prefab: {fileID: 5308511643935500051, guid: deeedbe01522a6144aca42ccd50b9c50, type: 3}
-    networked: 0
   - prefabId: checkpoint
     prefab: {fileID: 5308511643935500051, guid: caa80b0f11126a34d8e359f2dcb17b83, type: 3}
+    networked: 0
+  - prefabId: platform_finish
+    prefab: {fileID: 5969360184590892687, guid: f52ac28b53be6f946b0c16aa637d6e29, type: 3}
     networked: 0
   - prefabId: trap_launcher
     prefab: {fileID: 5308511643935500051, guid: ced8c2193a5ba5f47aeb406dff909aa0, type: 3}
     networked: 1
-  - prefabId: trap_moving
-    prefab: {fileID: 5308511643935500051, guid: 0e4f00d04499de14f9d8fcc1e4e7beb7, type: 3}
-    networked: 1
+  - prefabId: platform_straight_01
+    prefab: {fileID: 5308511643935500051, guid: deeedbe01522a6144aca42ccd50b9c50, type: 3}
+    networked: 0
+  - prefabId: platform_straight_02
+    prefab: {fileID: 5308511643935500051, guid: 55715d3dc881f914e861af4a1db826bf, type: 3}
+    networked: 0
+  - prefabId: platform_straight_03
+    prefab: {fileID: 5308511643935500051, guid: 6fea3e3c41b92e34eb3184425dcb4709, type: 3}
+    networked: 0
+  - prefabId: platform_straight_04
+    prefab: {fileID: 5308511643935500051, guid: 3a0f2c4bca6f4024a92418789cf4d04d, type: 3}
+    networked: 0
+  - prefabId: platform_straight_05
+    prefab: {fileID: 5308511643935500051, guid: 2b88405a91bdef24bbd77580367d0ff5, type: 3}
+    networked: 0
+  - prefabId: platform_straight_06
+    prefab: {fileID: 5308511643935500051, guid: 07b0327a6eae5a141864049c4254ed19, type: 3}
+    networked: 0
   - prefabId: platform_trampoline
     prefab: {fileID: 5308511643935500051, guid: 78922e9ea5d5274498ab8e4956332ce4, type: 3}
     networked: 0
+  - prefabId: platform_corner
+    prefab: {fileID: 6585113031846504679, guid: 74a090c698b99604c89714d78a5ec796, type: 3}
+    networked: 0
+  - prefabId: platform_curve
+    prefab: {fileID: 6585113031846504679, guid: 9c985b452dd57f2449acb89c2bef3a3f, type: 3}
+    networked: 0
+  - prefabId: trap_moving
+    prefab: {fileID: 5308511643935500051, guid: 0e4f00d04499de14f9d8fcc1e4e7beb7, type: 3}
+    networked: 1
+  - prefabId: trap_bumper
+    prefab: {fileID: 5308511643935500051, guid: d45b1460c198d13479789f0158599365, type: 3}
+    networked: 0
   localLevelRoot: {fileID: 0}
-  allowInvalidLevelsForTesting: 0
+  allowInvalidLevelsForTesting: 1
 --- !u!114 &662909995
 MonoBehaviour:
   m_ObjectHideFlags: 0

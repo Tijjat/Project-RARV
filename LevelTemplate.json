@@ -1,95 +1,208 @@
 {
   "formatVersion": 1,
-  "levelId": "example_level_001",
-  "levelName": "Example Work In Progress",
+  "levelId": "prefab_catalog_reference",
+  "levelName": "Prefab Reference Catalog - Not a Playable Level",
   "isValid": false,
   "grid": {
     "width": 20,
     "length": 30,
     "cellSize": 2.0,
-    "origin": { "x": 0.0, "y": 0.0, "z": 0.0 }
+    "origin": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
   },
   "objects": [
     {
-      "id": "start_001",
+      "id": "example_platform_start",
       "prefabId": "platform_start",
-      "position": { "x": 4.0, "y": 0.0, "z": 2.0 },
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
       "rotationY": 0,
       "parameters": {}
     },
     {
-      "id": "platform_001",
-      "prefabId": "platform_basic",
-      "position": { "x": 4.0, "y": 0.0, "z": 4.0 },
-      "rotationY": 90,
+      "id": "example_platform_finish",
+      "prefabId": "platform_finish",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotationY": 0,
       "parameters": {}
     },
     {
-      "id": "moving_001",
+      "id": "example_platform_basic",
+      "prefabId": "platform_basic",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "example_platform_straight_01",
+      "prefabId": "platform_straight_01",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "example_platform_straight_02",
+      "prefabId": "platform_straight_02",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "example_platform_straight_03",
+      "prefabId": "platform_straight_03",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "example_platform_straight_04",
+      "prefabId": "platform_straight_04",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "example_platform_straight_05",
+      "prefabId": "platform_straight_05",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "example_platform_straight_06",
+      "prefabId": "platform_straight_06",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "example_platform_corner",
+      "prefabId": "platform_corner",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "example_platform_curve",
+      "prefabId": "platform_curve",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "example_checkpoint",
+      "prefabId": "checkpoint",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotationY": 0,
+      "parameters": {}
+    },
+    {
+      "id": "example_platform_moving",
       "prefabId": "platform_moving",
-      "position": { "x": 4.0, "y": 0.0, "z": 6.0 },
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
       "rotationY": 0,
       "parameters": {
-        "moveStart": { "x": 4.0, "y": 0.0, "z": 6.0 },
-        "moveEnd": { "x": 8.0, "y": 0.0, "z": 6.0 },
-        "travelTime": 3.0
+        "distance": 5.0,
+        "speed": 2.0,
+        "pauseAtEnds": 0.5
       }
     },
     {
-      "id": "checkpoint_001",
-      "prefabId": "checkpoint",
-      "position": { "x": 8.0, "y": 0.0, "z": 8.0 },
-      "rotationY": 0,
-      "parameters": {}
-    },
-    {
-      "id": "bumper_001",
-      "prefabId": "trap_bumper",
-      "position": { "x": 8.0, "y": 0.0, "z": 10.0 },
-      "rotationY": 90,
-      "parameters": { "bumperForce": 12.0 }
-    },
-    {
-      "id": "launcher_001",
-      "prefabId": "trap_launcher",
-      "position": { "x": 10.0, "y": 0.0, "z": 12.0 },
-      "rotationY": 180,
-      "parameters": { "detectionRange": 8.0, "launchForce": 15.0 }
-    },
-    {
-      "id": "trampoline_001",
+      "id": "example_platform_trampoline",
       "prefabId": "platform_trampoline",
-      "position": { "x": 8.0, "y": 0.0, "z": 14.0 },
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
       "rotationY": 0,
-      "parameters": { "trampolineForce": 10.0 }
+      "parameters": {
+        "launchForce": 12.0,
+        "cooldown": 0.5
+      }
     },
     {
-      "id": "fan_001",
-      "prefabId": "trap_fan",
-      "position": { "x": 8.0, "y": 0.0, "z": 16.0 },
-      "rotationY": 270,
-      "parameters": { "fanForce": 6.0 }
-    },
-    {
-      "id": "platform_002",
-      "prefabId": "platform_basic",
-      "position": { "x": 8.0, "y": 0.0, "z": 18.0 },
+      "id": "example_trap_bumper",
+      "prefabId": "trap_bumper",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
       "rotationY": 0,
-      "parameters": {}
+      "parameters": {
+        "pushForce": 10.0,
+        "upwardForce": 3.0,
+        "cooldown": 1.0
+      }
     },
     {
-      "id": "finish_001",
-      "prefabId": "platform_finish",
-      "position": { "x": 8.0, "y": 0.0, "z": 20.0 },
+      "id": "example_trap_launcher",
+      "prefabId": "trap_launcher",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
       "rotationY": 0,
-      "parameters": {}
-    },
-    {
-      "id": "decoration_001",
-      "prefabId": "decoration_crate_01",
-      "position": { "x": 10.0, "y": 0.0, "z": 18.0 },
-      "rotationY": 90,
-      "parameters": {}
+      "parameters": {
+        "detectionRange": 8.0,
+        "launchForce": 15.0
+      }
     }
   ]
 }
