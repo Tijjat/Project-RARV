@@ -874,7 +874,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameLevelLauncher
   ShowTopMostFoldoutHeaderGroup: 1
   levelMapLoader: {fileID: 662909994}
-  levelJson: {fileID: 4900000, guid: 68ee1f3df9411f842806bb935c48f662, type: 3}
   gameSceneName: Game
 --- !u!1 &682121633
 GameObject:

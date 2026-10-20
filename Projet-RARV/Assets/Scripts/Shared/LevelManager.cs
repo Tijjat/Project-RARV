@@ -6,7 +6,7 @@ public class LevelManager : NetworkBehaviour
     public static LevelManager Instance { get; private set; }
 
     public LevelData CurrentLevelData { get; private set; } = new LevelData();
-
+    public LevelData SelectedLevel { get; private set; }
     private void Awake()
     {
         Instance = this;
@@ -20,15 +20,11 @@ public class LevelManager : NetworkBehaviour
         base.OnNetworkDespawn();
     }
 
-    public void SetLevelData(LevelData data)
+    public void SetLevelData(LevelData level)
     {
-        if (!IsServer)
-            return;
+        SelectedLevel = level;
 
-        CurrentLevelData = data;
-
-        string json = LevelJson.Serialize(data);
-        ReceiveLevelDataClientRpc(json);
+        Debug.Log($"[LevelManager] Selected map: {level.levelName}");
     }
 
     [ClientRpc]
