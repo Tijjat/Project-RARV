@@ -169,12 +169,12 @@
       }
     },
     {
-      "id": "finish_001",
+      "id": "finish_002",
       "prefabId": "platform_finish",
       "position": {
-        "x": 0.0,
+        "x": 5.0,
         "y": 0.0,
-        "z": 85.0
+        "z": 45
       },
       "rotationY": 0,
       "parameters": {}

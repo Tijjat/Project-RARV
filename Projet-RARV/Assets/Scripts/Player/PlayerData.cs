@@ -13,7 +13,12 @@ namespace Gameplay
         public PlayerMovementController PlayerMovementController;
         public GameObject PlayerCanvas;
         public GameObject PlayerFollowCamera;
-        public NetworkVariable<int> PlayerScore = new NetworkVariable<int>(
+        public NetworkVariable<int> PlayerRank = new NetworkVariable<int>(
+            0,
+            NetworkVariableReadPermission.Everyone,
+            NetworkVariableWritePermission.Server
+        );
+        public NetworkVariable<double> PlayerTime = new NetworkVariable<double>(
             0,
             NetworkVariableReadPermission.Everyone,
             NetworkVariableWritePermission.Server
@@ -74,6 +79,14 @@ namespace Gameplay
                 pseudo = pseudo.Substring(0, 60);
 
             PlayerPseudo.Value = new FixedString64Bytes(pseudo);
+        }
+        
+        public void SetTime(double time)
+        {
+            if (!IsServer)
+                return;
+
+            PlayerTime.Value = time - GameManager.Instance.StartTime.Value;
         }
     }
 }

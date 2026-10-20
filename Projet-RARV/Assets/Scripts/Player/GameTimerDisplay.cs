@@ -12,30 +12,45 @@ namespace Gameplay
             if (GameManager.Instance == null ||
                 !GameManager.Instance.IsSpawned)
             {
-                timerText.text = "--:--";
+                timerText.text = "";
                 return;
             }
 
             GameManager manager = GameManager.Instance;
 
-            if (!manager.GameStarted.Value)
+            if (!manager.GameLoaded.Value)
             {
                 timerText.text = "Waiting...";
                 return;
             }
+            
+            if (!manager.GameStarted.Value)
+            {
+                int seconds = Mathf.CeilToInt(
+                    (float)manager.StartCountdown
+                );
 
-            int seconds = Mathf.CeilToInt(
-                (float)manager.RemainingTime
-            );
+                timerText.text = seconds.ToString();
 
-            int minutes = seconds / 60;
-            int remainingSeconds = seconds % 60;
+                return;
+            }
+            
+            if (manager.GameStarted.Value && !manager.FirstArrived.Value)
+                timerText.text = "";
 
-            timerText.text =
-                $"{minutes:00}:{remainingSeconds:00}";
+            if (manager.FirstArrived.Value)
+            {
+                int seconds = Mathf.CeilToInt(
+                    (float)manager.RemainingTime
+                );
+    
+                timerText.text = seconds.ToString();
+    
+                if (manager.GameEnded.Value)
+                    timerText.text = "0";
+            }
 
-            if (manager.GameEnded.Value)
-                timerText.text = "00:00";
+            
         }
     }
 }

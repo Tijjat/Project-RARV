@@ -7,13 +7,13 @@ namespace Gameplay
     {
         [SerializeField] private TMP_Text rankText;
         [SerializeField] private TMP_Text pseudoText;
-        [SerializeField] private TMP_Text scoreText;
+        [SerializeField] private TMP_Text timerText;
 
-        public void Setup(int rank, string pseudo, int score)
+        public void Setup(int rank, string pseudo, string timer)
         {
             rankText.text = rank.ToString();
             pseudoText.text = pseudo;
-            scoreText.text = score.ToString();
+            timerText.text = timer;
         }
     }
 }
