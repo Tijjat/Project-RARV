@@ -132,14 +132,29 @@ public class LevelMapLoader : NetworkBehaviour
                 continue;
 
             GameObject instance = Instantiate(
-     entry.prefab,
-     obj.position,
-     Quaternion.Euler(0f, obj.rotationY, 0f),
-     localLevelRoot
- );
+                 entry.prefab,
+                 obj.position,
+                 Quaternion.Euler(0f, obj.rotationY, 0f),
+                 localLevelRoot
+             );
 
             instance.name = obj.id;
 
+            if (obj.prefabId == "trap_fan")
+            {
+                FanTrap fan = instance.GetComponentInChildren<FanTrap>();
+
+                if (fan != null && obj.parameters != null)
+                {
+                    fan.Configure(
+                        obj.parameters.windForce,
+                        obj.parameters.sweepAngle,
+                        obj.parameters.sweepSpeed,
+                        obj.parameters.activeDuration,
+                        obj.parameters.cooldownDuration
+                    );
+                }
+            }
             // Configure trampoline parameters from JSON
             if (obj.prefabId == "platform_trampoline")
             {

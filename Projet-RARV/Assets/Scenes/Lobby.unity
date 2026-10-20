@@ -827,6 +827,9 @@ MonoBehaviour:
   - prefabId: trap_bumper
     prefab: {fileID: 5308511643935500051, guid: d45b1460c198d13479789f0158599365, type: 3}
     networked: 0
+  - prefabId: trap_fan
+    prefab: {fileID: 5308511643935500051, guid: 3f05a5012e201b443a60e2db4e09bbb0, type: 3}
+    networked: 0
   localLevelRoot: {fileID: 0}
   allowInvalidLevelsForTesting: 1
 --- !u!114 &662909995
