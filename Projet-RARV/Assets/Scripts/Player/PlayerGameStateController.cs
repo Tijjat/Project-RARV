@@ -15,15 +15,18 @@ namespace Gameplay
 
         private void Update()
         {
-            if (!IsOwner || _movementDisabled)
+            if (!IsOwner)
                 return;
 
             if (GameManager.Instance == null ||
-                !GameManager.Instance.IsSpawned)
-                return;
-
-            if (!GameManager.Instance.GameEnded.Value)
-                return;
+                !GameManager.Instance.IsSpawned ||
+                (!GameManager.Instance.GameEnded.Value && 
+                 GameManager.Instance.GameStarted.Value)) {
+                    _movementDisabled = false;
+                    if (_movement != null)
+                        _movement.enabled = true;
+                    return;
+            }
 
             _movementDisabled = true;
 

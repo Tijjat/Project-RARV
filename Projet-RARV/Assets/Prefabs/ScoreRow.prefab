@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.ScoreboardRow
   rankText: {fileID: 6439016701927326274}
   pseudoText: {fileID: 7742412776875850352}
-  scoreText: {fileID: 1958876110990956985}
+  timerText: {fileID: 1958876110990956985}
 --- !u!1 &4564240486022050470
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 1958876110990956985}
   - component: {fileID: 3235952729679061651}
   m_Layer: 13
-  m_Name: Score
+  m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

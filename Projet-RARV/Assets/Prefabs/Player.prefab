@@ -31,10 +31,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6662321135969842356}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 326.89}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 456, y: -372.42957}
+  m_SizeDelta: {x: 812, y: 326.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6430078831009984749
 MonoBehaviour:
@@ -916,7 +916,7 @@ GameObject:
   - component: {fileID: 7160819107453554205}
   - component: {fileID: 1198918876884761545}
   m_Layer: 6
-  m_Name: Score
+  m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -936,10 +936,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3271519376295049292}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 676.66675, y: -20.11}
+  m_SizeDelta: {x: 270.6667, y: 40.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7373706943751173988
 CanvasRenderer:
@@ -969,7 +969,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Score
+  m_text: Time
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1940,10 +1940,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6662321135969842356}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 456, y: -55}
+  m_SizeDelta: {x: 812, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7684097556946862897
 CanvasRenderer:
@@ -2332,10 +2332,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3271519376295049292}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 135.33334, y: -20.11}
+  m_SizeDelta: {x: 270.6667, y: 40.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8680569728936752708
 CanvasRenderer:
@@ -2876,10 +2876,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4191721392253814703}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -20}
+  m_SizeDelta: {x: 300, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3911420899902263103
 CanvasRenderer:
@@ -3069,10 +3069,10 @@ RectTransform:
   - {fileID: 3284069009175529351}
   m_Father: {fileID: 6662321135969842356}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 58.7336}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 456, y: -144.49228}
+  m_SizeDelta: {x: 812, y: 58.7336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5736480254528020782
 MonoBehaviour:
@@ -3229,10 +3229,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3271519376295049292}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 406.00003, y: -20.11}
+  m_SizeDelta: {x: 270.6667, y: 40.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2663658214076049757
 CanvasRenderer:
@@ -3864,6 +3864,7 @@ MonoBehaviour:
   _animator: {fileID: 8907287570235535351}
   RotationSmoothTime: 0.12
   knockbackDamping: 5
+  airControl: 0.4
 --- !u!114 &7076069432511813650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3923,7 +3924,12 @@ MonoBehaviour:
   PlayerMovementController: {fileID: 2485851674633704889}
   PlayerCanvas: {fileID: 3046525760568603617}
   PlayerFollowCamera: {fileID: 8711062249255550862}
-  PlayerScore:
+  PlayerRank:
+    UpdateTraits:
+      MinSecondsBetweenUpdates: 0
+      MaxSecondsBetweenUpdates: 0
+    m_InternalValue: 0
+  PlayerTime:
     UpdateTraits:
       MinSecondsBetweenUpdates: 0
       MaxSecondsBetweenUpdates: 0

@@ -48,13 +48,12 @@ namespace Gameplay
 
             foreach (PlayerData data in FindObjectsByType<PlayerData>(FindObjectsSortMode.None))
             {
-                if (data.IsSpawned)
+                if (data.IsSpawned && data.PlayerTime.Value != 0)
                     players.Add(data);
             }
 
-            // Sort by score (highest first).
             players = players
-                .OrderByDescending(p => p.PlayerScore.Value)
+                .OrderBy(p => p.PlayerTime.Value)
                 .ThenBy(p => p.PlayerPseudo.Value.ToString())
                 .ToList();
 
@@ -63,11 +62,20 @@ namespace Gameplay
             {
                 ScoreboardRow row =
                     Instantiate(scoreRowPrefab, scoreList);
+                int seconds = Mathf.CeilToInt(
+                    (float)players[i].PlayerTime.Value
+                );
+
+                int minutes = seconds / 60;
+                int remainingSeconds = seconds % 60;
+
+                string timerText =
+                    $"{minutes:00}:{remainingSeconds:00}";
 
                 row.Setup(
                     i + 1,
                     players[i].PlayerPseudo.Value.ToString(),
-                    players[i].PlayerScore.Value
+                    timerText
                 );
             }
 
