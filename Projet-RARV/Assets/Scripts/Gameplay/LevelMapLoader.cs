@@ -132,12 +132,29 @@ public class LevelMapLoader : NetworkBehaviour
                 continue;
 
             GameObject instance = Instantiate(
-                entry.prefab,
-                obj.position,
-                Quaternion.Euler(0f, obj.rotationY, 0f),
-                localLevelRoot
-            );
+     entry.prefab,
+     obj.position,
+     Quaternion.Euler(0f, obj.rotationY, 0f),
+     localLevelRoot
+ );
+
             instance.name = obj.id;
+
+            // Configure trampoline parameters from JSON
+            if (obj.prefabId == "platform_trampoline")
+            {
+                TrampolineTrap trampoline =
+                    instance.GetComponentInChildren<TrampolineTrap>();
+
+                if (trampoline != null && obj.parameters != null)
+                {
+                    trampoline.Configure(
+                        obj.parameters.trampolineForce,
+                        obj.parameters.cooldown
+                    );
+                }
+            }
+
             localInstances.Add(instance);
         }
     }

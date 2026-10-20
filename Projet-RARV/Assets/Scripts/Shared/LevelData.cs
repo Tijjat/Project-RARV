@@ -46,11 +46,10 @@ public class LevelObjectParameters
 
     // Launcher, bumper, fan, trampoline: optional per-object overrides.
     // The PC game can use prefab defaults where these values are not configurable.
-    public float detectionRange = 0f;
-    public float launchForce = 0f;
     public float bumperForce = 0f;
     public float fanForce = 0f;
-    public float trampolineForce = 0f;
+    public float trampolineForce = 12f;
+    public float cooldown = 0.5f;
 }
 
 public static class LevelJson
