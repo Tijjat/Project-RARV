@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
-  "levelId": "test_straight_cannon_001",
-  "levelName": "Straight Cannon Test",
+  "levelId": "test_map_001",
+  "levelName": "Test Map",
   "isValid": true,
   "grid": {
     "width": 20,
@@ -152,6 +152,20 @@
       "distance": 5.0,
       "speed": 2.0,
       "pauseAtEnds": 0.5
+      }
+    },
+    {
+      "id": "trampoline_01",
+      "prefabId": "platform_trampoline",
+      "position": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": 40.0
+      },
+      "rotationY": 90,
+      "parameters": {
+        "launchForce": 12.0,
+        "cooldown": 0.5
       }
     },
     {

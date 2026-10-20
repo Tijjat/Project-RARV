@@ -800,6 +800,9 @@ MonoBehaviour:
   - prefabId: trap_moving
     prefab: {fileID: 5308511643935500051, guid: 0e4f00d04499de14f9d8fcc1e4e7beb7, type: 3}
     networked: 1
+  - prefabId: platform_trampoline
+    prefab: {fileID: 5308511643935500051, guid: 78922e9ea5d5274498ab8e4956332ce4, type: 3}
+    networked: 0
   localLevelRoot: {fileID: 0}
   allowInvalidLevelsForTesting: 0
 --- !u!114 &662909995

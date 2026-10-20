@@ -348,7 +348,12 @@ namespace Gameplay
             // set sphere position, with offset
             Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset + (GroundedRadius / 2),
                 transform.position.z);
-            Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, ~LayerMask.GetMask("Player"));
+            Grounded = Physics.CheckSphere(
+                spherePosition,
+                GroundedRadius,
+                ~LayerMask.GetMask("Player"),
+                QueryTriggerInteraction.Ignore
+            );
             _animator.SetBool(_animIDGrounded, Grounded);
         }
 
@@ -444,6 +449,23 @@ namespace Gameplay
                     hit.collider.GetComponentInParent<MovingPlatform>();
             }
         }
+
+        public void Bounce(float launchForce)
+        {
+            if (!IsOwner)
+                return;
+
+            // Replace vertical velocity with upward launch velocity
+            _verticalVelocity = launchForce;
+
+            Grounded = false;
+
+            // Prevent the player from jumping again immediately
+            _jumpTimeoutDelta = JumpTimeout;
+
+            Debug.Log($"Trampoline bounce: {launchForce}");
+        }
+
 
         #endregion
     }

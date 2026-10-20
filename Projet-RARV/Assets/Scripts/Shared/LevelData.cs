@@ -39,18 +39,17 @@ public class LevelObjectData
 [Serializable]
 public class LevelObjectParameters
 {
-    // Moving platform: world-space endpoints and travel duration in seconds.
+    // Moving platform: distance, speed and pause.
     public float distance = 5f;
     public float speed = 2f;
     public float pauseAtEnds = 0.5f;
 
     // Launcher, bumper, fan, trampoline: optional per-object overrides.
     // The PC game can use prefab defaults where these values are not configurable.
-    public float detectionRange = 0f;
-    public float launchForce = 0f;
     public float bumperForce = 0f;
     public float fanForce = 0f;
-    public float trampolineForce = 0f;
+    public float trampolineForce = 12f;
+    public float cooldown = 0.5f;
 }
 
 public static class LevelJson
