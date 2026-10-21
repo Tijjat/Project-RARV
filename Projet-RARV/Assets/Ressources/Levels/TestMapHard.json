@@ -194,9 +194,9 @@
       "position": {
         "x": 15.0,
         "y": 0.0,
-        "z": 100.0
+        "z": 95
       },
-      "rotationY": 90,
+      "rotationY": 0,
       "parameters": {}
     }
   ]
