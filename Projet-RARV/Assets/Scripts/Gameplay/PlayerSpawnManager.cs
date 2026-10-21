@@ -6,7 +6,7 @@ namespace Gameplay
 {
     public class PlayerSpawnManager : NetworkBehaviour
     {
-        [SerializeField] private Transform[] spawnPoints;
+        private Transform[] spawnPoints;
 
         public override void OnNetworkSpawn()
         {
@@ -50,7 +50,7 @@ namespace Gameplay
             }
             else
             {
-                Debug.LogError("GameManager not found in Laboratory!");
+                Debug.LogError("GameManager not found in Game!");
             }
         }
 
@@ -61,6 +61,13 @@ namespace Gameplay
 
             foreach (var client in NetworkManager.ConnectedClientsList)
             {
+                GameObject[] objects =
+                    GameObject.FindGameObjectsWithTag("Spawn");
+            
+                spawnPoints = System.Array.ConvertAll(
+                    objects, obj => obj.transform
+                );
+                
                 if (index >= spawnPoints.Length)
                     break;
 
