@@ -486,6 +486,20 @@ namespace Gameplay
                 maxExternalSpeed
             );
         }
+        public void ResetMovementState()
+        {
+            _verticalVelocity = 0f;
+            _knockbackVelocity = Vector3.zero;
+            _speed = 0f;
+
+            _jumpTimeoutDelta = JumpTimeout;
+            _fallTimeoutDelta = FallTimeout;
+
+            currentPlatform = null;
+            previousPlatform = null;
+
+            Grounded = false;
+        }
 
 
         #endregion

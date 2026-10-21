@@ -7,6 +7,7 @@ namespace Gameplay
     {
         private PlayerMovementController _movement;
         private bool _movementDisabled;
+        
 
         private void Awake()
         {
