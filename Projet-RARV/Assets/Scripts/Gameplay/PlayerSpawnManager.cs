@@ -58,16 +58,16 @@ namespace Gameplay
         private void SpawnPlayers()
         {
             int index = 0;
-
+            
+            GameObject[] objects =
+                GameObject.FindGameObjectsWithTag("Spawn");
+            
+            spawnPoints = System.Array.ConvertAll(
+                objects, obj => obj.transform
+            );
+            
             foreach (var client in NetworkManager.ConnectedClientsList)
             {
-                GameObject[] objects =
-                    GameObject.FindGameObjectsWithTag("Spawn");
-            
-                spawnPoints = System.Array.ConvertAll(
-                    objects, obj => obj.transform
-                );
-                
                 if (index >= spawnPoints.Length)
                     break;
 
@@ -95,6 +95,9 @@ namespace Gameplay
                     point.rotation,
                     rpcParams
                 );
+                
+                playerData.PlayerCheckpointPosition.Value = point.position;
+                playerData.PlayerCheckpointRotation.Value = point.rotation;
 
                 Debug.Log(
                     $"Teleport request for player {client.ClientId} to {point.position}"

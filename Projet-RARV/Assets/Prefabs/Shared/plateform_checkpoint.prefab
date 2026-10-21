@@ -31,37 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 588206141806457108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2371726819968515285
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5413822305268513151}
-  m_Layer: 0
-  m_Name: Spawn1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5413822305268513151
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2371726819968515285}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 641673625217360742}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2629723443367474275
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 641673625217360742}
   m_Layer: 0
-  m_Name: SpawnPoints
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,15 +192,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3154143206232613506}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.7, z: 1.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5413822305268513151}
-  - {fileID: 3854804762093310632}
+  m_Children: []
   m_Father: {fileID: 4730060387149302589}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4515318978503046887
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,37 +230,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 588206141806457108}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!1 &4990900920206939831
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3854804762093310632}
-  m_Layer: 0
-  m_Name: Spawn2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3854804762093310632
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4990900920206939831}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 641673625217360742}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5308511643935500051
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +240,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4730060387149302589}
   - component: {fileID: 299020694891006196}
-  - component: {fileID: 6828450805196870673}
   m_Layer: 0
   m_Name: plateform_checkpoint
   m_TagString: Untagged
@@ -346,21 +281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967d99e2eb7e0224ebbd3287550c8c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SnapPoint
---- !u!114 &6828450805196870673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5308511643935500051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b964b444863f13a42a46d239058293b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerSpawnManager
-  spawnPoints:
-  - {fileID: 5413822305268513151}
-  - {fileID: 3854804762093310632}
 --- !u!1 &5373361424190896203
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +325,7 @@ GameObject:
   - component: {fileID: 6371932516487616740}
   - component: {fileID: 6015462092080513306}
   - component: {fileID: 5841165561438205771}
+  - component: {fileID: 702768776482557415}
   m_Layer: 0
   m_Name: CheckpointZone
   m_TagString: Untagged
@@ -456,6 +377,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &702768776482557415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7116383552684642953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242e686c9446e1746827d5c3b8fef216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CheckpointZone
+  spawnPoint: {fileID: 641673625217360742}
 --- !u!1 &8208418815891140794
 GameObject:
   m_ObjectHideFlags: 0

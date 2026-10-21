@@ -5480,6 +5480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1896814790}
   - component: {fileID: 1896814789}
+  - component: {fileID: 1896814791}
   m_Layer: 0
   m_Name: DeathZone
   m_TagString: Untagged
@@ -5523,6 +5524,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1896814791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896814788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e66b775540069449bcad97b95d6dd6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathZone
 --- !u!1 &1937340664
 GameObject:
   m_ObjectHideFlags: 0

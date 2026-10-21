@@ -1,4 +1,5 @@
 
+using Gameplay;
 using UnityEngine;
 using Unity.Netcode;
 
@@ -16,6 +17,11 @@ public class DeathZone : MonoBehaviour
 
         Debug.Log($"[DeathZone] Player {player.OwnerClientId} fell off the map.");
 
-        // TODO: Call your player death / respawn system here.
+        PlayerData playerData = player.GetComponent<PlayerData>();
+        
+        playerData.TeleportClientRpc(
+            playerData.PlayerCheckpointPosition.Value,
+            playerData.PlayerCheckpointRotation.Value
+        );
     }
 }
