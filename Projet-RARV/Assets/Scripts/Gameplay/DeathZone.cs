@@ -14,10 +14,13 @@ public class DeathZone : MonoBehaviour
 
         if (!NetworkManager.Singleton.IsServer)
             return;
-
-        Debug.Log($"[DeathZone] Player {player.OwnerClientId} fell off the map.");
-
+        
         PlayerData playerData = player.GetComponent<PlayerData>();
+        
+        if (playerData.PlayerTime.Value != 0)
+            return;
+        
+        Debug.Log($"[DeathZone] Player {player.OwnerClientId} fell off the map.");
         
         playerData.TeleportClientRpc(
             playerData.PlayerCheckpointPosition.Value,
