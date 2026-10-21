@@ -14,11 +14,19 @@ namespace Gameplay
         public PlayerMovementController PlayerMovementController;
         public GameObject PlayerCanvas;
         public GameObject PlayerFollowCamera;
-        public NetworkVariable<int> PlayerRank = new NetworkVariable<int>(
-            0,
-            NetworkVariableReadPermission.Everyone,
-            NetworkVariableWritePermission.Server
-        );
+        public NetworkVariable<Vector3> PlayerCheckpointPosition =
+            new NetworkVariable<Vector3>(
+                Vector3.zero,
+                NetworkVariableReadPermission.Everyone,
+                NetworkVariableWritePermission.Server
+            );
+
+        public NetworkVariable<Quaternion> PlayerCheckpointRotation =
+            new NetworkVariable<Quaternion>(
+                Quaternion.identity,
+                NetworkVariableReadPermission.Everyone,
+                NetworkVariableWritePermission.Server
+            );
         public NetworkVariable<double> PlayerTime = new NetworkVariable<double>(
             0,
             NetworkVariableReadPermission.Everyone,
