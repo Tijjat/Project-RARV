@@ -11,7 +11,7 @@ namespace Gameplay
 
         public void Setup(int rank, string pseudo, string timer)
         {
-            rankText.text = rank.ToString();
+            rankText.text = rank == 0 ? "" : rank.ToString();
             pseudoText.text = pseudo;
             timerText.text = timer;
         }
