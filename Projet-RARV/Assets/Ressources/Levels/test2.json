@@ -1,0 +1,317 @@
+{
+    "formatVersion": 1,
+    "levelId": "c6a2ea8d0f8a450c930986815742f056",
+    "levelName": "test2",
+    "isValid": true,
+    "grid": {
+        "width": 250,
+        "length": 250,
+        "cellSize": 2.0,
+        "origin": {
+            "x": -250.0,
+            "y": 0.0,
+            "z": -250.0
+        }
+    },
+    "objects": [
+        {
+            "id": "obj_9cfd39b4c47f4e24906f2029e312e0fd",
+            "prefabId": "trap_moving",
+            "position": {
+                "x": -1.530948281288147,
+                "y": 0.7669026851654053,
+                "z": 6.937864303588867
+            },
+            "rotationY": 0,
+            "parameters": {
+                "distance": 5.0,
+                "speed": 2.0,
+                "pauseAtEnds": 0.5,
+                "bumperForce": 0.0,
+                "cooldown": 0.5,
+                "trampolineForce": 12.0,
+                "windForce": 30.0,
+                "sweepAngle": 45.0,
+                "sweepSpeed": 45.0,
+                "activeDuration": 5.0,
+                "cooldownDuration": 1.0
+            }
+        },
+        {
+            "id": "obj_853f5f66f7bb49bd80cd3cda0ff32739",
+            "prefabId": "checkpoint",
+            "position": {
+                "x": -1.5309489965438843,
+                "y": 0.7669026851654053,
+                "z": 1.9378643035888672
+            },
+            "rotationY": 0,
+            "parameters": {
+                "distance": 5.0,
+                "speed": 2.0,
+                "pauseAtEnds": 0.5,
+                "bumperForce": 0.0,
+                "cooldown": 0.5,
+                "trampolineForce": 12.0,
+                "windForce": 30.0,
+                "sweepAngle": 45.0,
+                "sweepSpeed": 45.0,
+                "activeDuration": 5.0,
+                "cooldownDuration": 1.0
+            }
+        },
+        {
+            "id": "obj_817e044286ca48e692dbca8711dbdae8",
+            "prefabId": "platform_straight_03",
+            "position": {
+                "x": -1.5309507846832275,
+                "y": 0.7669026851654053,
+                "z": -5.562135696411133
+            },
+            "rotationY": 0,
+            "parameters": {
+                "distance": 5.0,
+                "speed": 2.0,
+                "pauseAtEnds": 0.5,
+                "bumperForce": 0.0,
+                "cooldown": 0.5,
+                "trampolineForce": 12.0,
+                "windForce": 30.0,
+                "sweepAngle": 45.0,
+                "sweepSpeed": 45.0,
+                "activeDuration": 5.0,
+                "cooldownDuration": 1.0
+            }
+        },
+        {
+            "id": "obj_9889986185c84ebaa084af445e1a1301",
+            "prefabId": "platform_start",
+            "position": {
+                "x": -1.530953049659729,
+                "y": 0.7669026851654053,
+                "z": -13.062135696411133
+            },
+            "rotationY": 180,
+            "parameters": {
+                "distance": 5.0,
+                "speed": 2.0,
+                "pauseAtEnds": 0.5,
+                "bumperForce": 0.0,
+                "cooldown": 0.5,
+                "trampolineForce": 12.0,
+                "windForce": 30.0,
+                "sweepAngle": 45.0,
+                "sweepSpeed": 45.0,
+                "activeDuration": 5.0,
+                "cooldownDuration": 1.0
+            }
+        },
+        {
+            "id": "obj_3f8dedb22cb1448f86a80905ed9e9767",
+            "prefabId": "trap_fan",
+            "position": {
+                "x": -1.5309470891952515,
+                "y": 0.7669026851654053,
+                "z": 14.437864303588867
+            },
+            "rotationY": 180,
+            "parameters": {
+                "distance": 5.0,
+                "speed": 2.0,
+                "pauseAtEnds": 0.5,
+                "bumperForce": 0.0,
+                "cooldown": 0.5,
+                "trampolineForce": 12.0,
+                "windForce": 30.0,
+                "sweepAngle": 45.0,
+                "sweepSpeed": 45.0,
+                "activeDuration": 5.0,
+                "cooldownDuration": 1.0
+            }
+        },
+        {
+            "id": "obj_0c9d9a03a874492ab7beac8c7c6cfe21",
+            "prefabId": "platform_trampoline",
+            "position": {
+                "x": -1.5309455394744873,
+                "y": 0.7669026851654053,
+                "z": 21.937864303588867
+            },
+            "rotationY": 0,
+            "parameters": {
+                "distance": 5.0,
+                "speed": 2.0,
+                "pauseAtEnds": 0.5,
+                "bumperForce": 0.0,
+                "cooldown": 0.5,
+                "trampolineForce": 12.0,
+                "windForce": 30.0,
+                "sweepAngle": 45.0,
+                "sweepSpeed": 45.0,
+                "activeDuration": 5.0,
+                "cooldownDuration": 1.0
+            }
+        },
+        {
+            "id": "obj_6da7da68ef5c405ebb28e2dfad25c4ef",
+            "prefabId": "platform_corner",
+            "position": {
+                "x": -1.5309439897537231,
+                "y": 0.7669026851654053,
+                "z": 26.937864303588867
+            },
+            "rotationY": 0,
+            "parameters": {
+                "distance": 5.0,
+                "speed": 2.0,
+                "pauseAtEnds": 0.5,
+                "bumperForce": 0.0,
+                "cooldown": 0.5,
+                "trampolineForce": 12.0,
+                "windForce": 30.0,
+                "sweepAngle": 45.0,
+                "sweepSpeed": 45.0,
+                "activeDuration": 5.0,
+                "cooldownDuration": 1.0
+            }
+        },
+        {
+            "id": "obj_3b06deac422a4d7e9a84d7b150167bf8",
+            "prefabId": "platform_corner",
+            "position": {
+                "x": 3.469057083129883,
+                "y": 0.7669026851654053,
+                "z": 26.937864303588867
+            },
+            "rotationY": 180,
+            "parameters": {
+                "distance": 5.0,
+                "speed": 2.0,
+                "pauseAtEnds": 0.5,
+                "bumperForce": 0.0,
+                "cooldown": 0.5,
+                "trampolineForce": 12.0,
+                "windForce": 30.0,
+                "sweepAngle": 45.0,
+                "sweepSpeed": 45.0,
+                "activeDuration": 5.0,
+                "cooldownDuration": 1.0
+            }
+        },
+        {
+            "id": "obj_9870cda7275648c6a25a6fd8e699293e",
+            "prefabId": "platform_corner",
+            "position": {
+                "x": 3.469060182571411,
+                "y": 0.7669026851654053,
+                "z": 31.9378662109375
+            },
+            "rotationY": 90,
+            "parameters": {
+                "distance": 5.0,
+                "speed": 2.0,
+                "pauseAtEnds": 0.5,
+                "bumperForce": 0.0,
+                "cooldown": 0.5,
+                "trampolineForce": 12.0,
+                "windForce": 30.0,
+                "sweepAngle": 45.0,
+                "sweepSpeed": 45.0,
+                "activeDuration": 5.0,
+                "cooldownDuration": 1.0
+            }
+        },
+        {
+            "id": "obj_3f9d866facaf4247ac551a16e2d79068",
+            "prefabId": "platform_curve",
+            "position": {
+                "x": -4.030941963195801,
+                "y": 0.7669026851654053,
+                "z": 34.437870025634766
+            },
+            "rotationY": 270,
+            "parameters": {
+                "distance": 5.0,
+                "speed": 2.0,
+                "pauseAtEnds": 0.5,
+                "bumperForce": 0.0,
+                "cooldown": 0.5,
+                "trampolineForce": 12.0,
+                "windForce": 30.0,
+                "sweepAngle": 45.0,
+                "sweepSpeed": 45.0,
+                "activeDuration": 5.0,
+                "cooldownDuration": 1.0
+            }
+        },
+        {
+            "id": "obj_6abb79c85ab34499adaf1e7b947cb09c",
+            "prefabId": "checkpoint",
+            "position": {
+                "x": -6.530937194824219,
+                "y": 0.7669026851654053,
+                "z": 41.93787384033203
+            },
+            "rotationY": 0,
+            "parameters": {
+                "distance": 5.0,
+                "speed": 2.0,
+                "pauseAtEnds": 0.5,
+                "bumperForce": 0.0,
+                "cooldown": 0.5,
+                "trampolineForce": 12.0,
+                "windForce": 30.0,
+                "sweepAngle": 45.0,
+                "sweepSpeed": 45.0,
+                "activeDuration": 5.0,
+                "cooldownDuration": 1.0
+            }
+        },
+        {
+            "id": "obj_1b7c9f2072c742ffb312252553d37427",
+            "prefabId": "trap_bumper",
+            "position": {
+                "x": -6.530930995941162,
+                "y": 0.7669026851654053,
+                "z": 49.43787384033203
+            },
+            "rotationY": 180,
+            "parameters": {
+                "distance": 5.0,
+                "speed": 2.0,
+                "pauseAtEnds": 0.5,
+                "bumperForce": 0.0,
+                "cooldown": 0.5,
+                "trampolineForce": 12.0,
+                "windForce": 30.0,
+                "sweepAngle": 45.0,
+                "sweepSpeed": 45.0,
+                "activeDuration": 5.0,
+                "cooldownDuration": 1.0
+            }
+        },
+        {
+            "id": "obj_13016f9b6ea945fc860c0aae177c42f3",
+            "prefabId": "platform_finish",
+            "position": {
+                "x": -6.530924320220947,
+                "y": 0.7669026851654053,
+                "z": 56.93787384033203
+            },
+            "rotationY": 0,
+            "parameters": {
+                "distance": 5.0,
+                "speed": 2.0,
+                "pauseAtEnds": 0.5,
+                "bumperForce": 0.0,
+                "cooldown": 0.5,
+                "trampolineForce": 12.0,
+                "windForce": 30.0,
+                "sweepAngle": 45.0,
+                "sweepSpeed": 45.0,
+                "activeDuration": 5.0,
+                "cooldownDuration": 1.0
+            }
+        }
+    ]
+}
