@@ -48,13 +48,13 @@ namespace Gameplay
 
             foreach (PlayerData data in FindObjectsByType<PlayerData>(FindObjectsSortMode.None))
             {
-                if (data.IsSpawned && data.PlayerTime.Value != 0)
+                if (data.IsSpawned)
                     players.Add(data);
             }
 
             players = players
-                .OrderBy(p => p.PlayerTime.Value)
-                .ThenBy(p => p.PlayerPseudo.Value.ToString())
+                .OrderBy(p => p.PlayerTime.Value == 0)
+                .ThenBy(p => p.PlayerTime.Value)
                 .ToList();
 
             // Create one row per player.
@@ -72,11 +72,22 @@ namespace Gameplay
                 string timerText =
                     $"{minutes:00}:{remainingSeconds:00}";
 
-                row.Setup(
-                    i + 1,
-                    players[i].PlayerPseudo.Value.ToString(),
-                    timerText
-                );
+                if (players[i].PlayerTime.Value == 0)
+                {
+                    row.Setup(
+                        0,
+                        players[i].PlayerPseudo.Value.ToString(),
+                        "DNF"
+                    );
+                }
+                else
+                {
+                    row.Setup(
+                        i + 1,
+                        players[i].PlayerPseudo.Value.ToString(),
+                        timerText
+                    );
+                }
             }
 
             endGamePanel.SetActive(true);
